@@ -160,3 +160,83 @@ email.addEventListener("keydown", function () {
 closeFormBtn.addEventListener("click", function () {
   formSection.classList.remove("active-form");
 });
+
+// POSTS // GET/POST/DELETE
+
+function createPost() {
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "GET",
+  })
+    .then((response) => {
+      if (response.status !== 200) {
+        throw "error";
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      const postWrapper = document.getElementById("postWrapper");
+      data.forEach((i) => {
+        const postBox = document.createElement("div");
+        postBox.classList.add("post-box");
+        const boxContent = document.createElement("div");
+        boxContent.classList.add("box-content");
+        const idTag = document.createElement("h1");
+        idTag.innerText = i.id;
+        const titleTag = document.createElement("h2");
+        titleTag.innerText = i.title;
+        const textTag = document.createElement("p");
+        textTag.innerText = i.body;
+        const moreBtn = document.createElement("button");
+        moreBtn.classList.add("post-btn");
+        moreBtn.innerText = "See More!";
+        const removeIconSpan = document.createElement("span");
+        removeIconSpan.classList.add("remove-span");
+        removeIconSpan.innerHTML = '<i class="fa-sharp fa-solid fa-trash"></i>';
+
+        const closeIcon = document.createElement("span");
+        closeIcon.classList.add("close-box");
+        closeIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+        boxContent.appendChild(idTag);
+        boxContent.appendChild(titleTag);
+        const postContent = document.createElement("div");
+        postContent.classList.add("post-content");
+        postBox.appendChild(postContent);
+
+        postContent.appendChild(boxContent);
+        postContent.appendChild(removeIconSpan);
+        postContent.appendChild(moreBtn);
+        postWrapper.appendChild(postBox);
+
+        const postOverlay = document.createElement("div");
+        postOverlay.classList.add("display-none");
+        postOverlay.classList.add("post-overlay");
+        postBox.appendChild(postOverlay);
+        postOverlay.appendChild(textTag);
+        postOverlay.appendChild(closeIcon);
+
+        moreBtn.addEventListener("click", function () {
+          postOverlay.classList.add("display-block");
+          postOverlay.classList.remove("display-none");
+          postContent.classList.add("display-none");
+        });
+
+        closeIcon.addEventListener("click", function () {
+          postContent.classList.remove("display-none");
+          postOverlay.classList.remove("display-block");
+          postOverlay.classList.add("display-none");
+        });
+      });
+    });
+}
+
+createPost();
+
+// const mainWraperPosts = document.getElementById("main-block");
+// const overlay = document.getElementById("overlay-block");
+// const content = document.getElementById("content");
+// const closeIcon = document.getElementById("close");
+// const addButton = document.getElementById("add");
+// const postOverlayAdd = document.getElementById("postOverlay");
+// const form = document.getElementById("form");

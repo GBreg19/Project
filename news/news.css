@@ -16,6 +16,14 @@ ul {
   list-style: none;
 }
 
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
 .header {
   background-color: rgba(38, 44, 58, 255);
   display: -webkit-box;
@@ -268,6 +276,80 @@ ul {
   cursor: pointer;
 }
 
+/* POSTS SECTION  */
+
+.post-wrapper {
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.post-box {
+  width: 300px;
+  height: 250px;
+  background-color: rgb(98, 118, 163, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.post-btn {
+  width: 100px;
+  height: 25px;
+  background-color: rgb(98, 118, 163);
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.remove-span {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.remove-span i {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.post-box p {
+  color: white;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+
+.close-box {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.close-box i {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
 /* MEDIA  */
 
 @media (max-width: 1056px) {
@@ -318,11 +400,13 @@ ul {
   .nav-ul {
     position: fixed;
     right: -100%;
-    top: 100px;
+    top: 135px;
     gap: 0;
     flex-direction: column;
-    background-color: rgb(255, 255, 255, 0.3);
+    background-color: rgba(38, 44, 58, 255);
     width: 235px;
+    height: 300px;
+    padding-bottom: 15px;
     text-align: center;
     transition: 0.3s;
   }
