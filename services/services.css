@@ -149,6 +149,7 @@ ul {
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 100;
   display: none;
 }
 
@@ -350,7 +351,7 @@ ul {
 /* ACORDION */
 
 .servicesAcordion {
-  width: 50%;
+  width: 70%;
 }
 
 .accordion {
@@ -442,7 +443,7 @@ ul {
 /* TO DO LIST  */
 
 .services-todo {
-  width: 50%;
+  width: 30%;
   max-height: 100%;
   padding-left: 50px;
   position: relative;
@@ -498,9 +499,9 @@ ul {
   display: -webkit-flex;
   display: flex;
   justify-content: space-between;
-  width: 1400px;
-  height: 392px;
+  width: 1000px;
   margin: 100px auto;
+  padding: 0 0 88px 0;
 }
 
 .inner-services {
