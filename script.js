@@ -399,3 +399,7 @@ getTeamMembers(pageCounter);
 //   serviceBtn.classList.remove("service-btn");
 //   serviceBtn.classList.add("service-btn-overlay");
 // });
+
+// LOCALSTORAGE
+
+localStorage.setItem("test", 1);

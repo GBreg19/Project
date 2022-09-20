@@ -20,6 +20,10 @@ ul {
   display: none;
 }
 
+.display-flex {
+  display: flex;
+}
+
 .display-block {
   display: block;
 }
@@ -298,16 +302,33 @@ ul {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.post-content {
+  height: 200px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  position: relative;
+}
+
+.box-content {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .post-btn {
@@ -348,6 +369,152 @@ ul {
   font-size: 30px;
   color: white;
   cursor: pointer;
+}
+
+.add-icon {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: rgb(98, 118, 163);
+  border: 2px white solid;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-icon i {
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ADD POST FORM  */
+
+.add-post-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(98, 118, 163);
+  width: 400px;
+  height: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.add-post-form h1 {
+  text-align: center;
+}
+
+.add-post-form div {
+  width: 200px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-form {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.close-form {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* FOOTER  */
+
+footer {
+  background-color: rgba(38, 44, 58, 255);
+  /* height: 300px; */
+}
+
+.footer-section {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: 200px 400px 100px;
+  column-gap: 300px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.footer-flex {
+  height: 110px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.leftie {
+  height: 140px;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon span {
+  position: absolute;
+  left: -30px;
+  top: 0;
+}
+
+.mid {
+  height: 150px;
+}
+
+.icons {
+  width: 150px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons span a {
+  color: white;
+}
+
+.icons span i {
+  font-size: 25px;
+}
+
+.icons span i:hover {
+  color: rgb(98, 118, 163);
+  transition: 0.3s;
+}
+
+.rightie li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.rightie li a:hover {
+  color: rgb(98, 118, 163);
+  transition: 0.3s;
 }
 
 /* MEDIA  */

@@ -23,9 +23,11 @@
         <div class="nav" id="navigation">
           <ul class="nav-ul" id="navUl">
             <li><a href="../index.html" class="nav-a">Home</a></li>
-            <li><a href="" class="nav-a">News</a></li>
-            <li><a href="./Team/team.html" class="nav-a">Team</a></li>
-            <li><a href="" class="nav-a">Services</a></li>
+            <li><a href="../news/news.html" class="nav-a">News</a></li>
+            <li><a href="../team/team.html" class="nav-a">Team</a></li>
+            <li>
+              <a href="../services/services.html" class="nav-a">Services</a>
+            </li>
             <li><a href="" class="nav-a">About</a></li>
           </ul>
         </div>
@@ -51,6 +53,32 @@
     <main>
       <section class="posts">
         <div class="post-wrapper" id="postWrapper"></div>
+        <div class="add-post">
+          <span class="add-icon" id="addIcon">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </div>
+        <div class="add-post-form display-none" id="addPostContainer">
+          <form action="" class="inner-add-post" id="addPost">
+            <div class="heading">
+              <h1>Add Post</h1>
+            </div>
+            <div class="title">
+              <label for="" for="title">Title</label>
+              <input type="text" id="title" />
+            </div>
+            <div class="body">
+              <label for="description">Description</label>
+              <textarea name="" id="description" cols="30" rows="5"></textarea>
+            </div>
+            <div class="submit-btn">
+              <button type="submit">Submit</button>
+            </div>
+            <span class="close-form">
+              <i class="fa-solid fa-xmark" id="close-add-post"></i>
+            </span>
+          </form>
+        </div>
         <!-- <div class="main-block" id="mainBlock">
           <div class="overlay" id="overlay-block">
             <div class="content" id="content"></div>
@@ -165,6 +193,63 @@
       </form>
     </section>
 
+    <footer>
+      <section class="footer-section">
+        <div class="left-side">
+          <ul class="footer-flex leftie">
+            <li class="location icon"> 
+              <h3>Albuquerque, New Mexico</h3>
+            <span>
+              <i class="fa-solid fa-location-dot"></i>
+            </span></li>
+            <li class="num icon"> 
+              <h3>+1-505-555-0149</h3>
+              <span>
+                <i class="fa-solid fa-phone"></i>
+              </span>
+            </li>
+            <li class="mail icon">
+              <h3>hhmlawoffice@company.com</h3>
+            <span>
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            </li>
+          </ul>
+        </div>
+        <div class="middle-side">
+          <ul class="footer-flex mid">
+            <li>
+              <h3>About the company</h3>
+            </li>
+            <li>
+              <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia quo
+              expedita quasi ullam iure, laborum aliquam harum consectetur
+              dignissimos ea voluptatum recusandae unde, mollitia sit.
+            </p>
+            </li>
+            <li class="icons">
+              <span><a href=""><i class="fa-brands fa-facebook"></i></a></span>
+              <span><a href=""><i class="fa-brands fa-square-twitter"></i></a></span>
+              <span><a href=""><i class="fa-brands fa-linkedin"></i></a></span>
+              <span><a href=""><i class="fa-brands fa-youtube"></i></a></span>
+            </li>
+          </ul>
+          </div>
+          <div class="right-side">
+            <ul class="footer-flex rightie">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="news/news.html">News</a></li>
+              <li><a href="team/team.html">Team</a></li>
+              <li>
+                <a href="services/services.html">Services</a>
+              </li>
+              <li><a href="">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </footer>
     <script src="news.js"></script>
   </body>
 </html>

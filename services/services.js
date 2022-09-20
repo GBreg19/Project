@@ -161,82 +161,62 @@ closeFormBtn.addEventListener("click", function () {
   formSection.classList.remove("active-form");
 });
 
-// TEAM LIST
+// ACORDION
 
-const teamUl = document.getElementById("teamUl");
+let acc = document.querySelectorAll(".accordion");
+const plusMinus = document.querySelectorAll(".plus-minus");
+const none = document.querySelectorAll(".none");
+let i;
 
-let counter = 1;
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
 
-function teamList(pageCounter) {
-  fetch(`https://reqres.in/api/users?page= + ${pageCounter}`, {
-    method: "GET",
-  })
-    .then((response) => {
-      if (response.status !== 200) {
-        throw "error";
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // console.log(data);
-      data.data.forEach((i) => {
-        const memberLi = document.createElement("li");
-        memberLi.classList.add("member-li");
-        memberLi.setAttribute("id", "memberLi");
-        const memberID = document.createElement("h1");
-        memberID.textContent = i.id;
-        memberID.classList.add("member-id");
-        const memberImg = document.createElement("img");
-        memberImg.src = i.avatar;
-        memberImg.classList.add("member-img");
-        const memberName = document.createElement("h3");
-        memberName.textContent = `${i.first_name} ${i.last_name}`;
-        memberName.classList.add("member-name");
-        const memberMail = document.createElement("h4");
-        memberMail.textContent = i.email;
-        memberMail.classList.add("member-mail");
-        const memberStatus = document.createElement("h4");
-        memberStatus.textContent = "Active";
-        memberStatus.classList.add("member-status");
-
-        memberLi.appendChild(memberID);
-        memberLi.appendChild(memberImg);
-        memberLi.appendChild(memberName);
-        memberLi.appendChild(memberMail);
-        memberLi.appendChild(memberStatus);
-        teamUl.appendChild(memberLi);
-
-        // const loadBtn = document.createElement("button");
-        // loadBtn.textContent = "Load More!";
-        // loadBtn.classList.add("load-btn");
-        // teamDiv.appendChild(loadBtn);
-
-        // loadBtn.addEventListener("click", function () {
-        //   counter++;
-        //   teamList();
-        // });
-
-        const searchInput = document.getElementById("searchInput");
-
-        searchInput.addEventListener("keyup", function () {
-          // console.log(event);
-          const filter = searchInput.value.toUpperCase();
-          const ul = document.getElementById("teamUl");
-          const li = ul.getElementsByTagName("li");
-          for (let i = 0; i < li.length; i++) {
-            if (memberName) {
-              const txtValue = memberName.textContent || memberName.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                memberLi.style.display = "";
-              } else {
-                memberLi.style.display = "none";
-              }
-            }
-          }
-          console.log();
-        });
-      });
-    });
+    let panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }
 
-teamList(counter);
+// acc.forEach((i) => {
+//   i.addEventListener("click", function () {
+//     plusMinus.forEach((j) => {
+//       console.log(j);
+//     });
+//   });
+// });
+
+// SERVICES & TO DO LIST
+
+const addBtns = document.getElementsByClassName("todoBtns");
+const todoListDiv = document.getElementById("todoList");
+
+for (const item of addBtns) {
+  // console.log(item.textContent);
+  const todoLi = document.createElement("li");
+  todoLi.classList.add("todo-li");
+  const todoP = document.createElement("p");
+  const closeSpan = document.createElement("span");
+  const closeIconTD = document.createElement("p");
+  closeIconTD.textContent = "X";
+  closeSpan.appendChild(closeIconTD);
+  item.addEventListener("click", function () {
+    todoP.textContent = item.textContent;
+
+    todoLi.appendChild(todoP);
+    todoLi.appendChild(closeSpan);
+    todoListDiv.appendChild(todoLi);
+  });
+  closeSpan.addEventListener("click", function () {
+    todoLi.remove();
+  });
+}
+
+const removeAllBtn = document.getElementById("removeAll");
+
+removeAllBtn.addEventListener("click", function () {
+  todoListDiv.innerHTML = "";
+});
