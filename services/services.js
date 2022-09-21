@@ -194,8 +194,12 @@ for (i = 0; i < acc.length; i++) {
 const addBtns = document.getElementsByClassName("todoBtns");
 const todoListDiv = document.getElementById("todoList");
 
+const todoListLocalStorage = localStorage.getItem("todoList");
+let todoListItems = todoListLocalStorage
+  ? JSON.parse(todoListLocalStorage)
+  : [];
+
 for (const item of addBtns) {
-  // console.log(item.textContent);
   const todoLi = document.createElement("li");
   todoLi.classList.add("todo-li");
   const todoP = document.createElement("p");
@@ -204,19 +208,45 @@ for (const item of addBtns) {
   closeIconTD.textContent = "X";
   closeSpan.appendChild(closeIconTD);
   item.addEventListener("click", function () {
+    if (!todoListItems.find((d) => d === item.textContent)) {
+      todoListItems.push(item.textContent);
+    }
     todoP.textContent = item.textContent;
-
     todoLi.appendChild(todoP);
     todoLi.appendChild(closeSpan);
     todoListDiv.appendChild(todoLi);
+    localStorage.setItem("todoList", JSON.stringify(todoListItems));
   });
   closeSpan.addEventListener("click", function () {
     todoLi.remove();
+    todoListItems = todoListItems.filter((d) => d !== item.textContent);
+    localStorage.setItem("todoList", JSON.stringify(todoListItems));
   });
 }
+
+todoListItems.forEach((d) => {
+  const todoLi = document.createElement("li");
+  todoLi.classList.add("todo-li");
+  const todoP = document.createElement("p");
+  const closeSpan = document.createElement("span");
+  const closeIconTD = document.createElement("p");
+  closeIconTD.textContent = "X";
+  closeSpan.appendChild(closeIconTD);
+  todoP.textContent = d;
+  todoLi.appendChild(todoP);
+  todoLi.appendChild(closeSpan);
+  todoListDiv.appendChild(todoLi);
+
+  closeSpan.addEventListener("click", function () {
+    todoLi.remove();
+    todoListItems = todoListItems.filter((e) => e !== d);
+    localStorage.setItem("todoList", JSON.stringify(todoListItems));
+  });
+});
 
 const removeAllBtn = document.getElementById("removeAll");
 
 removeAllBtn.addEventListener("click", function () {
   todoListDiv.innerHTML = "";
+  localStorage.removeItem("todoList");
 });
